@@ -1,0 +1,48 @@
+[2024-07-09_18:24:09] - [html_test_runner_main.py:134] INFO -----开始执行所有测试,总用例数：1
+[2024-07-09_18:24:09] - [html_test_runner_main.py:135] INFO <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<testAPI.Demo_API testMethod=test_api_1>]>]>]>
+[2024-07-09_18:24:09] - [html_test_runner_main.py:73] ERROR Error in test test_api_1 (testAPI.Demo_API)
+Traceback (most recent call last):
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 60, in testPartExecutor
+    yield
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\ddt.py", line 221, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\mytest\UnittestDemoAPI\testcase\testAPI.py", line 27, in test_api
+    rowNum = int(data['ID'].split("_")[2])
+IndexError: list index out of range
+[2024-07-09_18:24:09] - [html_test_runner_main.py:146] ERROR ------所有测试用例执行完毕-------
+[2024-07-09_18:24:59] - [html_test_runner_main.py:134] INFO -----开始执行所有测试,总用例数：1
+[2024-07-09_18:24:59] - [html_test_runner_main.py:135] INFO <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<testAPI.Demo_API testMethod=test_api_1>]>]>]>
+[2024-07-09_18:24:59] - [html_test_runner_main.py:73] ERROR Error in test test_api_1 (testAPI.Demo_API)
+Traceback (most recent call last):
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 60, in testPartExecutor
+    yield
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\ddt.py", line 221, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\mytest\UnittestDemoAPI\testcase\testAPI.py", line 27, in test_api
+    rowNum = int(data['ID'].split("_")[2])
+IndexError: list index out of range
+[2024-07-09_18:24:59] - [html_test_runner_main.py:146] ERROR ------所有测试用例执行完毕-------
+[2024-07-09_18:26:55] - [html_test_runner_main.py:134] INFO -----开始执行所有测试,总用例数：1
+[2024-07-09_18:26:55] - [html_test_runner_main.py:135] INFO <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<testAPI.Demo_API testMethod=test_api_1>]>]>]>
+[2024-07-09_18:26:55] - [html_test_runner_main.py:73] ERROR Error in test test_api_1 (testAPI.Demo_API)
+Traceback (most recent call last):
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 60, in testPartExecutor
+    yield
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "D:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\ddt.py", line 221, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\mytest\UnittestDemoAPI\testcase\testAPI.py", line 27, in test_api
+    rowNum = int(data['ID'].split("_")[2])
+IndexError: list index out of range
+[2024-07-09_18:26:55] - [html_test_runner_main.py:146] ERROR ------所有测试用例执行完毕-------

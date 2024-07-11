@@ -1,11 +1,22 @@
-## DemoAPI
+# DemoAPI
+## quickstart
+```shell
+# 安装
+#卸载已安装的
+pip uninstall xlrd 
+#下载对应的版本
+pip install xlrd==1.2.0
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple openpyxl
+
+```
+
 本文总结介绍接口测试框架开发，环境使用python3+selenium3+unittest测试框架及ddt数据驱动，采用Excel管理测试用例等集成测试数据功能，以及使用HTMLTestRunner来生成测试报告，目前有开源的poman、Jmeter等接口测试工具，为什么还要开发接口测试框架呢？因接口测试工具也有存在几点不足。
 * 测试数据不可控制。比如接口返回数据不可控，就无法自动断言接口返回的数据，不能断定是接口程序引起，还是测试数据变化引起的错误，所以需要做一些初始化测试数据。接口工具没有具备初始化测试数据功能，无法做到真正的接口测试自动化。
 * 无法测试加密接口。实际项目中，多数接口不是可以随便调用，一般情况无法摸拟和生成加密算法。如时间戳和MDB加密算法，一般接口工具无法摸拟。
 * 扩展能力不足。开源的接口测试工具无法实现扩展功能。比如，我们想生成不同格式的测试报告，想将测试报告发送到指定邮箱，又想让接口测试集成到CI中，做持续集成定时任务。
 
 ## 测试框架处理流程
-![Image](https://github.com/yingoja/DemoAPI/blob/master/share/screeshots/frame.JPG)
+![Image](./assets/screeshots/frame.JPG)
 
 测试框架处理过程如下：
 * 首先初始化清空数据库表的数据，向数据库插入测试数据；
@@ -27,9 +38,9 @@
 
 ## 测试结果展示
 * HTML报告
-![Image](https://github.com/yingoja/DemoAPI/blob/master/share/screeshots/report1.JPG)
-![Image](https://github.com/yingoja/DemoAPI/blob/master/share/screeshots/report.JPG)
+![Image](./assets/screeshots/report1.JPG)
+![Image](./assets/screeshots/report.JPG)
 * Excel用例结果
-![Image](https://github.com/yingoja/DemoAPI/blob/master/share/screeshots/excel.JPG)
+![Image](./assets/screeshots/excel.JPG)
 * 邮件收到的测试报告
-![Image](https://github.com/yingoja/DemoAPI/blob/master/share/screeshots/mail.JPG)
+![Image](./assets/screeshots/mail.JPG)
