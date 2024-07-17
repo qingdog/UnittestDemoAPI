@@ -5,14 +5,14 @@ __author__ = 'YinJia'
 import configparser
 import datetime
 import logging
-import os, sys
+import os
+import sys
+import time
+import unittest
 
+from HTMLTestRunner.HTMLTestRunner import HTMLTestRunner, _TestResult
 from utils.get_new_report import get_latest_file_path
 from utils.mail_util import send_mail
-
-sys.path.append(os.path.dirname(__file__))
-import unittest, time
-from HTMLTestRunner.HTMLTestRunner import HTMLTestRunner, _TestResult
 
 
 class MyConfig:
@@ -35,6 +35,7 @@ def add_case(test_path=MyConfig.TEST_CASE):
     """加载所有的测试用例"""
     discover = unittest.defaultTestLoader.discover(test_path, pattern='test*.py')
     return discover
+
 
 # logging.basicConfig(level=logging.DEBUG,
 logging.basicConfig(level=logging.INFO,

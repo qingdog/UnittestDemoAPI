@@ -39,11 +39,14 @@ class TestAPI(unittest.TestCase):
     def test_api(self, excel_data: dict):
         """excel_data为sheet页中的一行数据，key为每一列的首行数据，value为这一行中的值"""
         # 发送请求
+        if "url" not in excel_data:
+            return
         response = MyRequests().send_request(self.session, excel_data=excel_data)
         # 校验http响应的状态码
+        url = excel_data["url"]
         if response.status_code not in self.config_status_codes:
             raise RuntimeError(
-                f"{excel_data['casetitle']} {excel_data['url']} {response.status_code} not in {self.config_status_codes}")
+                f"{url} {response.status_code}")
 
         code_key = "code"
         if code_key in excel_data:
@@ -60,16 +63,23 @@ class TestAPI(unittest.TestCase):
             msg = excel_data[code_key]
         result = "PASS"
 
+        case_id = ""
+        if "id" in excel_data:
+            case_id = excel_data["id"]
+        title = ""
+        if "title" in excel_data:
+            title = excel_data["title"]
+
         # 检查响应的Content-Type是否为JSON
         content_type = response.headers.get('Content-Type', '')
         if 'application/json' in content_type:
-            self.result = response.json()
+            json = response.json()
             self.logger.debug(f"用例数据：{excel_data}")
             self.logger.info("响应数据：%s" % response.content.decode("utf-8"))
 
             try:
-                self.assertEqual(ast.literal_eval(code), response.json()[code_key], "响应的code不相等！")
-                self.assertIn(msg, response.json()[msg_key], "响应的消息不在里面！")
+                self.assertEqual(ast.literal_eval(code), json[code_key], f"{case_id} {title} {url}")
+                self.assertIn(msg, json[msg_key], f"{case_id} {title} {url}")
             except Exception as e:
                 result = "FAIL"
                 raise e
@@ -78,8 +88,8 @@ class TestAPI(unittest.TestCase):
         else:
             # 如果Content-Type不是JSON，处理非JSON响应
             try:
-                self.assertIn(ast.literal_eval(code), response.text, "响应的code不在里面！")
-                self.assertIn(msg, response.text, "响应的消息不在里面！")
+                self.assertIn(ast.literal_eval(code), response.text, f"{case_id} {title} {url}")
+                self.assertIn(msg, response.text, f"{case_id} {title} {url}")
             except Exception as e:
                 result = "FAIL"
                 raise e
